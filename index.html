@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>핑거 타이머 클론 - 큐브 & 스포츠 스태킹 타이머</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Orbitron for Digital Display, Inter for general UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- 상단 헤더: 통계 및 제어 버튼 -->
+        <header class="app-header fade-target">
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-label">BEST</span>
+                    <span class="stat-value" id="stat-pb">--.---</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Ao5</span>
+                    <span class="stat-value" id="stat-ao5">--.---</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Ao12</span>
+                    <span class="stat-value" id="stat-ao12">--.---</span>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button id="btn-scramble-refresh" class="action-btn" title="새 스크램블">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                    </svg>
+                </button>
+                <button id="btn-settings" class="action-btn" title="설정">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                    </svg>
+                </button>
+                <button id="btn-history" class="action-btn" title="기록 내역">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- 스크램블 디스플레이 -->
+        <section class="scramble-section fade-target">
+            <div class="scramble-type-badge" id="scramble-type">3x3x3 Cube</div>
+            <div class="scramble-text" id="scramble-text">Generating scramble...</div>
+        </section>
+
+        <!-- 메인 디스플레이: 타이머 숫자 -->
+        <main class="timer-display-container">
+            <div class="inspection-alert" id="inspection-alert"></div>
+            <div class="timer-time" id="timer-text">00:00.000</div>
+        </main>
+
+        <!-- 터치패드 영역 (가로 배치) -->
+        <section class="touch-panels-container">
+            <!-- 왼쪽 터치패드 -->
+            <div class="touch-panel-wrapper">
+                <div class="led-light" id="led-left"></div>
+                <div class="touch-pad" id="pad-left" role="button" aria-label="왼손 패드">
+                    <div class="pad-glow"></div>
+                    <svg class="hand-icon left-hand" viewBox="0 0 100 120" width="80" height="100">
+                        <!-- 왼손 실루엣 -->
+                        <path d="M50,110 C35,110 25,100 20,85 C15,70 12,50 12,45 C12,40 16,36 20,36 C24,36 27,39 27,45 C27,33 31,28 35,28 C39,28 42,32 42,38 C42,24 46,20 50,20 C54,20 58,24 58,38 C58,26 62,23 66,23 C70,23 73,27 73,38 C73,43 73,50 75,55 C77,59 83,62 85,68 C87,74 85,82 82,90 C78,100 65,110 50,110 Z" class="hand-path-base"/>
+                        <path d="M12,45 C12,40 16,36 20,36 C24,36 27,39 27,45 L27,65" class="hand-finger"/>
+                        <path d="M27,45 C27,33 31,28 35,28 C39,28 42,32 42,38 L42,68" class="hand-finger"/>
+                        <path d="M42,38 C42,24 46,20 50,20 C54,20 58,24 58,38 L58,70" class="hand-finger"/>
+                        <path d="M58,38 C58,26 62,23 66,23 C70,23 73,27 73,38 L73,65" class="hand-finger"/>
+                        <!-- 엄지손가락 -->
+                        <path d="M20,85 C18,80 20,70 25,62 C29,55 33,52 36,55 C39,58 35,68 31,76 C28,82 25,85 20,85 Z" class="hand-thumb"/>
+                    </svg>
+                    <span class="keyboard-hint">Shift (L)</span>
+                </div>
+            </div>
+
+            <!-- 오른쪽 터치패드 -->
+            <div class="touch-panel-wrapper">
+                <div class="led-light" id="led-right"></div>
+                <div class="touch-pad" id="pad-right" role="button" aria-label="오른손 패드">
+                    <div class="pad-glow"></div>
+                    <svg class="hand-icon right-hand" viewBox="0 0 100 120" width="80" height="100">
+                        <!-- 오른손 실루엣 (왼손 반전 형태) -->
+                        <path d="M50,110 C65,110 75,100 80,85 C85,70 88,50 88,45 C88,40 84,36 80,36 C76,36 73,39 73,45 C73,33 69,28 65,28 C61,28 58,32 58,38 C58,24 54,20 50,20 C46,20 42,24 42,38 C42,26 38,23 34,23 C30,23 27,27 27,38 C27,43 27,50 25,55 C23,59 17,62 15,68 C13,74 15,82 18,90 C22,100 35,110 50,110 Z" class="hand-path-base"/>
+                        <path d="M88,45 C88,40 84,36 80,36 C76,36 73,39 73,45 L73,65" class="hand-finger"/>
+                        <path d="M73,45 C73,33 69,28 65,28 C61,28 58,32 58,38 L58,68" class="hand-finger"/>
+                        <path d="M58,38 C58,24 54,20 50,20 C46,20 42,24 42,38 L42,70" class="hand-finger"/>
+                        <path d="M42,38 C42,26 38,23 34,23 C30,23 27,27 27,38 L27,65" class="hand-finger"/>
+                        <!-- 엄지손가락 -->
+                        <path d="M80,85 C82,80 80,70 75,62 C71,55 67,52 64,55 C61,58 65,68 69,76 C72,82 75,85 80,85 Z" class="hand-thumb"/>
+                    </svg>
+                    <span class="keyboard-hint">Shift (R)</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 하단 키보드 및 디바이스 상태 안내 -->
+        <footer class="app-footer fade-target">
+            <span id="control-info-text">양손으로 패드를 동시에 누르고 있으면 준비 상태가 됩니다.</span>
+        </footer>
+
+        <!-- 설정 모달 -->
+        <div class="modal-overlay" id="modal-settings">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h2>설정</h2>
+                    <button class="modal-close-btn" id="btn-close-settings">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <!-- 타이머 정밀도 -->
+                    <div class="settings-group">
+                        <label class="settings-label">타이머 정밀도</label>
+                        <div class="segmented-control">
+                            <input type="radio" id="precision-2" name="precision" value="2">
+                            <label for="precision-2">0.01초 (1/100)</label>
+                            <input type="radio" id="precision-3" name="precision" value="3" checked>
+                            <label for="precision-3">0.001초 (1/1000)</label>
+                        </div>
+                    </div>
+
+                    <!-- 인스펙션 시간 -->
+                    <div class="settings-group">
+                        <label class="settings-label" for="select-inspection">WCA 인스펙션 (사전 관찰)</label>
+                        <select id="select-inspection" class="styled-select">
+                            <option value="0">인스펙션 없음</option>
+                            <option value="15">15초 (공식 WCA 규칙)</option>
+                            <option value="3">3초 (미니 연습)</option>
+                            <option value="8">8초</option>
+                        </select>
+                    </div>
+
+                    <!-- 효과음 설정 -->
+                    <div class="settings-group toggle-group">
+                        <label class="settings-label" for="toggle-sound">효과음(Beep) 사용</label>
+                        <div class="switch">
+                            <input type="checkbox" id="toggle-sound" checked>
+                            <span class="slider round"></span>
+                        </div>
+                    </div>
+
+                    <!-- 스크램블 유형 설정 -->
+                    <div class="settings-group">
+                        <label class="settings-label" for="select-puzzle">스크램블 퍼즐 유형</label>
+                        <select id="select-puzzle" class="styled-select">
+                            <option value="333">루빅스 큐브 3x3x3</option>
+                            <option value="222">2x2x2 포켓 큐브</option>
+                            <option value="444">4x4x4 마스터 큐브</option>
+                            <option value="stack">스포츠 스태킹 (종목 없음)</option>
+                            <option value="none">비활성화</option>
+                        </select>
+                    </div>
+
+                    <!-- 입력 장치 제어 방식 -->
+                    <div class="settings-group">
+                        <label class="settings-label">데스크톱 키보드 모드</label>
+                        <div class="segmented-control">
+                            <input type="radio" id="kb-dual" name="kb-mode" value="dual" checked>
+                            <label for="kb-dual">양손 모드 (좌/우 Shift)</label>
+                            <input type="radio" id="kb-single" name="kb-mode" value="space">
+                            <label for="kb-single">스페이스바 단독</label>
+                        </div>
+                        <p class="settings-help-text">
+                            <strong>양손 모드:</strong> 왼쪽 Shift(또는 F)와 오른쪽 Shift(또는 J) 키를 동시에 누르고 있어야 작동합니다.<br>
+                            <strong>스페이스바 단독:</strong> 스페이스바 하나를 길게 누르고 있다가 떼면 타이머가 시작됩니다.
+                        </p>
+                    </div>
+
+                    <!-- 단축키 도움말 -->
+                    <div class="settings-guide">
+                        <h3>키보드 단축키 안내</h3>
+                        <ul>
+                            <li><kbd>L-Shift</kbd> / <kbd>F</kbd> : 왼쪽 패드 터치</li>
+                            <li><kbd>R-Shift</kbd> / <kbd>J</kbd> : 오른쪽 패드 터치</li>
+                            <li><kbd>Spacebar</kbd> : 스페이스바 단독 모드일 때 터치 / 리셋 (타이머 정지 상태)</li>
+                            <li><kbd>Esc</kbd> : 설정 닫기 / 강제 정지</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 기록 내역 모달 -->
+        <div class="modal-overlay" id="modal-history">
+            <div class="modal-container history-container">
+                <div class="modal-header">
+                    <h2>기록 내역</h2>
+                    <div class="header-actions-inline">
+                        <button id="btn-clear-all" class="danger-btn">전체 삭제</button>
+                        <button class="modal-close-btn" id="btn-close-history">&times;</button>
+                    </div>
+                </div>
+                <div class="modal-body history-body">
+                    <div class="history-stats-grid">
+                        <div class="h-stat-box">
+                            <span class="h-stat-label">참여 횟수</span>
+                            <span class="h-stat-val" id="hist-count">0</span>
+                        </div>
+                        <div class="h-stat-box">
+                            <span class="h-stat-label">최고 기록 (PB)</span>
+                            <span class="h-stat-val text-gold" id="hist-pb">--.---</span>
+                        </div>
+                        <div class="h-stat-box">
+                            <span class="h-stat-label">현재 평균 (Mean)</span>
+                            <span class="h-stat-val" id="hist-mean">--.---</span>
+                        </div>
+                    </div>
+                    
+                    <div class="history-list-wrapper">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>기록</th>
+                                    <th>스크램블</th>
+                                    <th>일시</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-items">
+                                <!-- 기록이 여기에 자바스크립트로 동적 생성됨 -->
+                            </tbody>
+                        </table>
+                        <div class="no-records" id="no-records-msg">기록이 없습니다. 스태킹 또는 큐브 맞추기를 시작하세요!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
