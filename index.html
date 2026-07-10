@@ -82,15 +82,21 @@
                 <div class="led-light" id="led-left"></div>
                 <div class="touch-pad" id="pad-left" role="button" aria-label="왼손 패드">
                     <div class="pad-glow"></div>
-                    <svg class="hand-icon left-hand" viewBox="0 0 100 120" width="80" height="100">
-                        <!-- 왼손 실루엣 -->
-                        <path d="M50,110 C35,110 25,100 20,85 C15,70 12,50 12,45 C12,40 16,36 20,36 C24,36 27,39 27,45 C27,33 31,28 35,28 C39,28 42,32 42,38 C42,24 46,20 50,20 C54,20 58,24 58,38 C58,26 62,23 66,23 C70,23 73,27 73,38 C73,43 73,50 75,55 C77,59 83,62 85,68 C87,74 85,82 82,90 C78,100 65,110 50,110 Z" class="hand-path-base"/>
-                        <path d="M12,45 C12,40 16,36 20,36 C24,36 27,39 27,45 L27,65" class="hand-finger"/>
-                        <path d="M27,45 C27,33 31,28 35,28 C39,28 42,32 42,38 L42,68" class="hand-finger"/>
-                        <path d="M42,38 C42,24 46,20 50,20 C54,20 58,24 58,38 L58,70" class="hand-finger"/>
-                        <path d="M58,38 C58,26 62,23 66,23 C70,23 73,27 73,38 L73,65" class="hand-finger"/>
-                        <!-- 엄지손가락 -->
-                        <path d="M20,85 C18,80 20,70 25,62 C29,55 33,52 36,55 C39,58 35,68 31,76 C28,82 25,85 20,85 Z" class="hand-thumb"/>
+                    <svg class="hand-icon left-hand" viewBox="0 0 100 100" width="90" height="90">
+                        <g class="hand-graphic">
+                            <!-- 엄지 -->
+                            <path d="M 38 65 L 18 53 A 4.5 4.5 0 0 1 22.5 45 L 39 57" class="hand-part"/>
+                            <!-- 검지 -->
+                            <path d="M 43 50 L 43 15 A 4.5 4.5 0 0 1 52 15 L 52 50" class="hand-part"/>
+                            <!-- 중지 -->
+                            <path d="M 53 47 L 53 8 A 4.5 4.5 0 0 1 62 8 L 62 47" class="hand-part"/>
+                            <!-- 약지 -->
+                            <path d="M 63 50 L 63 15 A 4.5 4.5 0 0 1 72 15 L 72 50" class="hand-part"/>
+                            <!-- 새끼 -->
+                            <path d="M 73 55 L 73 25 A 4.5 4.5 0 0 1 82 25 L 82 55" class="hand-part"/>
+                            <!-- 손바닥 본체 및 손목 -->
+                            <path d="M 30 85 C 30 75, 32 60, 42 52 C 48 48, 70 48, 76 52 C 86 60, 86 75, 86 85 C 86 90, 30 90, 30 85 Z" class="hand-part"/>
+                        </g>
                     </svg>
                     <span class="keyboard-hint">Shift (L)</span>
                 </div>
@@ -101,15 +107,21 @@
                 <div class="led-light" id="led-right"></div>
                 <div class="touch-pad" id="pad-right" role="button" aria-label="오른손 패드">
                     <div class="pad-glow"></div>
-                    <svg class="hand-icon right-hand" viewBox="0 0 100 120" width="80" height="100">
-                        <!-- 오른손 실루엣 (왼손 반전 형태) -->
-                        <path d="M50,110 C65,110 75,100 80,85 C85,70 88,50 88,45 C88,40 84,36 80,36 C76,36 73,39 73,45 C73,33 69,28 65,28 C61,28 58,32 58,38 C58,24 54,20 50,20 C46,20 42,24 42,38 C42,26 38,23 34,23 C30,23 27,27 27,38 C27,43 27,50 25,55 C23,59 17,62 15,68 C13,74 15,82 18,90 C22,100 35,110 50,110 Z" class="hand-path-base"/>
-                        <path d="M88,45 C88,40 84,36 80,36 C76,36 73,39 73,45 L73,65" class="hand-finger"/>
-                        <path d="M73,45 C73,33 69,28 65,28 C61,28 58,32 58,38 L58,68" class="hand-finger"/>
-                        <path d="M58,38 C58,24 54,20 50,20 C46,20 42,24 42,38 L42,70" class="hand-finger"/>
-                        <path d="M42,38 C42,26 38,23 34,23 C30,23 27,27 27,38 L27,65" class="hand-finger"/>
-                        <!-- 엄지손가락 -->
-                        <path d="M80,85 C82,80 80,70 75,62 C71,55 67,52 64,55 C61,58 65,68 69,76 C72,82 75,85 80,85 Z" class="hand-thumb"/>
+                    <svg class="hand-icon right-hand" viewBox="0 0 100 100" width="90" height="90">
+                        <g class="hand-graphic" transform="scale(-1, 1) translate(-100, 0)">
+                            <!-- 엄지 -->
+                            <path d="M 38 65 L 18 53 A 4.5 4.5 0 0 1 22.5 45 L 39 57" class="hand-part"/>
+                            <!-- 검지 -->
+                            <path d="M 43 50 L 43 15 A 4.5 4.5 0 0 1 52 15 L 52 50" class="hand-part"/>
+                            <!-- 중지 -->
+                            <path d="M 53 47 L 53 8 A 4.5 4.5 0 0 1 62 8 L 62 47" class="hand-part"/>
+                            <!-- 약지 -->
+                            <path d="M 63 50 L 63 15 A 4.5 4.5 0 0 1 72 15 L 72 50" class="hand-part"/>
+                            <!-- 새끼 -->
+                            <path d="M 73 55 L 73 25 A 4.5 4.5 0 0 1 82 25 L 82 55" class="hand-part"/>
+                            <!-- 손바닥 본체 및 손목 -->
+                            <path d="M 30 85 C 30 75, 32 60, 42 52 C 48 48, 70 48, 76 52 C 86 60, 86 75, 86 85 C 86 90, 30 90, 30 85 Z" class="hand-part"/>
+                        </g>
                     </svg>
                     <span class="keyboard-hint">Shift (R)</span>
                 </div>

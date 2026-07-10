@@ -318,28 +318,20 @@ html, body {
     pointer-events: none;
 }
 
-/* Hand Outline Icons (SVGs) */
+/* Hand Outline Icons (SVGs) - Bold Stencil style matching thumbnail */
 .hand-icon {
-    transition: transform var(--transition-fast), stroke var(--transition-fast), fill var(--transition-fast);
-    max-width: 60%;
+    transition: transform var(--transition-fast), filter var(--transition-fast);
+    max-width: 65%;
     height: auto;
 }
 
-.hand-path-base {
-    fill: none;
+.hand-part {
+    fill: rgba(255, 255, 255, 0.02);
     stroke: var(--text-muted);
-    stroke-width: 2.5;
+    stroke-width: 3.5;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: stroke var(--transition-fast);
-}
-
-.hand-finger, .hand-thumb {
-    fill: none;
-    stroke: var(--text-muted);
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    transition: stroke var(--transition-fast);
+    transition: stroke var(--transition-fast), fill var(--transition-fast);
 }
 
 /* Pad States */
@@ -358,10 +350,9 @@ html, body {
     opacity: 1;
 }
 
-.touch-pad.state-hold .hand-path-base,
-.touch-pad.state-hold .hand-finger,
-.touch-pad.state-hold .hand-thumb {
+.touch-pad.state-hold .hand-part {
     stroke: var(--color-hold);
+    fill: rgba(var(--color-hold-rgb), 0.15);
 }
 
 .touch-pad.state-ready {
@@ -376,10 +367,9 @@ html, body {
     opacity: 1;
 }
 
-.touch-pad.state-ready .hand-path-base,
-.touch-pad.state-ready .hand-finger,
-.touch-pad.state-ready .hand-thumb {
+.touch-pad.state-ready .hand-part {
     stroke: var(--color-ready);
+    fill: rgba(var(--color-ready-rgb), 0.25);
 }
 
 @keyframes pad-pulse {
