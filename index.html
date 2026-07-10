@@ -82,7 +82,11 @@
                 <div class="led-light" id="led-left"></div>
                 <div class="touch-pad" id="pad-left" role="button" aria-label="왼손 패드">
                     <div class="pad-glow"></div>
-                    <div class="hand-image-bg left-hand-bg"></div>
+                    <div class="metallic-ring"></div>
+                    <svg class="hand-svg left-hand" viewBox="0 0 100 110" width="85%" height="85%">
+                        <!-- 정밀 인체공학 왼손 라인 -->
+                        <path d="M 50 105 C 42 105, 34 100, 28 92 C 21 82, 17 68, 17 60 C 17 58, 19 56, 21 56 C 23 56, 25 58, 25 61 C 25 67, 28 78, 33 85 C 34 78, 33 70, 31 63 C 29 55, 27 45, 27 40 C 27 36, 30 33, 33 33 C 36 33, 39 36, 39 42 C 39 49, 41 58, 43 65 C 43 55, 42 42, 42 33 C 42 28, 45 25, 49 25 C 53 25, 56 28, 56 34 C 56 45, 57 56, 58 64 C 59 55, 59 44, 60 36 C 60 31, 63 28, 67 28 C 71 28, 74 31, 74 38 C 74 48, 74 58, 74 67 C 75 60, 76 50, 78 44 C 79 40, 82 38, 85 39 C 88 40, 90 43, 89 48 C 87 58, 83 72, 80 83 C 76 96, 64 105, 50 105 Z" class="hand-path"/>
+                    </svg>
                     <span class="keyboard-hint">Shift (L)</span>
                 </div>
             </div>
@@ -92,7 +96,13 @@
                 <div class="led-light" id="led-right"></div>
                 <div class="touch-pad" id="pad-right" role="button" aria-label="오른손 패드">
                     <div class="pad-glow"></div>
-                    <div class="hand-image-bg right-hand-bg"></div>
+                    <div class="metallic-ring"></div>
+                    <svg class="hand-svg right-hand" viewBox="0 0 100 110" width="85%" height="85%">
+                        <!-- 대칭을 위해 transform 스케일 반전 적용 -->
+                        <g transform="scale(-1, 1) translate(-100, 0)">
+                            <path d="M 50 105 C 42 105, 34 100, 28 92 C 21 82, 17 68, 17 60 C 17 58, 19 56, 21 56 C 23 56, 25 58, 25 61 C 25 67, 28 78, 33 85 C 34 78, 33 70, 31 63 C 29 55, 27 45, 27 40 C 27 36, 30 33, 33 33 C 36 33, 39 36, 39 42 C 39 49, 41 58, 43 65 C 43 55, 42 42, 42 33 C 42 28, 45 25, 49 25 C 53 25, 56 28, 56 34 C 56 45, 57 56, 58 64 C 59 55, 59 44, 60 36 C 60 31, 63 28, 67 28 C 71 28, 74 31, 74 38 C 74 48, 74 58, 74 67 C 75 60, 76 50, 78 44 C 79 40, 82 38, 85 39 C 88 40, 90 43, 89 48 C 87 58, 83 72, 80 83 C 76 96, 64 105, 50 105 Z" class="hand-path"/>
+                        </g>
+                    </svg>
                     <span class="keyboard-hint">Shift (R)</span>
                 </div>
             </div>
