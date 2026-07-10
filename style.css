@@ -327,6 +327,10 @@ html, body {
     pointer-events: none;
 }
 
+.right-hand {
+    transform: scaleX(-1); /* Mirror horizontally for right hand */
+}
+
 .hand-part-line {
     fill: rgba(255, 255, 255, 0.04);
     stroke: var(--text-muted);
@@ -1029,6 +1033,10 @@ kbd {
     .hand-svg {
         width: 65px;
         height: 65px;
+    }
+    
+    .right-hand {
+        transform: scaleX(-1);
     }
     
     .keyboard-hint {

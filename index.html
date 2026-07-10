@@ -84,21 +84,8 @@
                     <div class="pad-glow"></div>
                     <div class="metallic-ring"></div>
                     <svg class="hand-svg left-hand" viewBox="0 0 100 100" width="80" height="80">
-                        <!-- 왼손: 변환 없이 배치하여 엄지가 오른쪽(안쪽)을 보게 함 -->
-                        <g class="hand-graphic" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- 손바닥 (Palm) -->
-                            <path d="M 20 62 C 20 78, 28 92, 50 92 C 72 92, 80 78, 80 62 C 80 55, 78 50, 74 48" class="hand-part-line"/>
-                            <!-- 새끼손가락 (Pinky) -->
-                            <path d="M 24 55 V 34 A 4.5 4.5 0 0 1 33 34 V 52" class="hand-part-line"/>
-                            <!-- 약지손가락 (Ring) -->
-                            <path d="M 36 50 V 20 A 4.5 4.5 0 0 1 45 20 V 48" class="hand-part-line"/>
-                            <!-- 중지손가락 (Middle) -->
-                            <path d="M 48 48 V 12 A 4.5 4.5 0 0 1 57 12 V 48" class="hand-part-line"/>
-                            <!-- 검지손가락 (Index) -->
-                            <path d="M 60 50 V 22 A 4.5 4.5 0 0 1 69 22 V 55" class="hand-part-line"/>
-                            <!-- 엄지손가락 (Thumb) - 시계방향 우측 회전형태 -->
-                            <path d="M 68 62 C 74 62, 83 58, 89 50 A 4.5 4.5 0 0 1 96 55 C 89 66, 79 72, 68 72" class="hand-part-line"/>
-                        </g>
+                        <!-- 왼손: 단일 유려 곡선 패스 (엄지가 오른쪽/안쪽을 향함) -->
+                        <path d="M 38 95 C 33 95, 25 82, 23 70 C 22 65, 18 50, 18 40 C 18 35, 24 35, 24 40 V 52 C 24 55, 28 55, 28 52 V 25 C 28 20, 34 20, 34 25 V 48 C 34 51, 38 51, 38 48 V 15 C 38 10, 44 10, 44 15 V 48 C 44 51, 48 51, 48 48 V 23 C 48 18, 54 18, 54 23 V 54 C 54 60, 60 62, 68 62 C 76 62, 85 58, 88 52 C 91 48, 95 52, 92 58 C 85 68, 73 78, 62 78 C 55 78, 48 95, 43 95 Z" class="hand-part-line"/>
                     </svg>
                     <span class="keyboard-hint">Shift (L)</span>
                 </div>
@@ -111,21 +98,8 @@
                     <div class="pad-glow"></div>
                     <div class="metallic-ring"></div>
                     <svg class="hand-svg right-hand" viewBox="0 0 100 100" width="80" height="80">
-                        <!-- 오른손: 가로 대칭 변환을 걸어 엄지가 왼쪽(안쪽)을 보게 함 -->
-                        <g class="hand-graphic" transform="scale(-1, 1) translate(-100, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- 손바닥 (Palm) -->
-                            <path d="M 20 62 C 20 78, 28 92, 50 92 C 72 92, 80 78, 80 62 C 80 55, 78 50, 74 48" class="hand-part-line"/>
-                            <!-- 새끼손가락 (Pinky) -->
-                            <path d="M 24 55 V 34 A 4.5 4.5 0 0 1 33 34 V 52" class="hand-part-line"/>
-                            <!-- 약지손가락 (Ring) -->
-                            <path d="M 36 50 V 20 A 4.5 4.5 0 0 1 45 20 V 48" class="hand-part-line"/>
-                            <!-- 중지손가락 (Middle) -->
-                            <path d="M 48 48 V 12 A 4.5 4.5 0 0 1 57 12 V 48" class="hand-part-line"/>
-                            <!-- 검지손가락 (Index) -->
-                            <path d="M 60 50 V 22 A 4.5 4.5 0 0 1 69 22 V 55" class="hand-part-line"/>
-                            <!-- 엄지손가락 (Thumb) -->
-                            <path d="M 68 62 C 74 62, 83 58, 89 50 A 4.5 4.5 0 0 1 96 55 C 89 66, 79 72, 68 72" class="hand-part-line"/>
-                        </g>
+                        <!-- 오른손: 동일 패스를 얹고 CSS scaleX(-1)로 완벽 대칭 처리 (엄지가 왼쪽/안쪽을 향함) -->
+                        <path d="M 38 95 C 33 95, 25 82, 23 70 C 22 65, 18 50, 18 40 C 18 35, 24 35, 24 40 V 52 C 24 55, 28 55, 28 52 V 25 C 28 20, 34 20, 34 25 V 48 C 34 51, 38 51, 38 48 V 15 C 38 10, 44 10, 44 15 V 48 C 44 51, 48 51, 48 48 V 23 C 48 18, 54 18, 54 23 V 54 C 54 60, 60 62, 68 62 C 76 62, 85 58, 88 52 C 91 48, 95 52, 92 58 C 85 68, 73 78, 62 78 C 55 78, 48 95, 43 95 Z" class="hand-part-line"/>
                     </svg>
                     <span class="keyboard-hint">Shift (R)</span>
                 </div>
