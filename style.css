@@ -325,10 +325,10 @@ html, body {
     pointer-events: none;
 }
 
-.hand-path {
+.hand-part-line {
     fill: rgba(255, 255, 255, 0.03);
-    stroke: rgba(255, 255, 255, 0.2);
-    stroke-width: 2.2;
+    stroke: rgba(255, 255, 255, 0.15);
+    stroke-width: 3.2;
     stroke-linecap: round;
     stroke-linejoin: round;
     transition: stroke var(--transition-fast), fill var(--transition-fast), filter var(--transition-fast);
@@ -369,7 +369,7 @@ html, body {
 .touch-pad:hover {
     border-color: rgba(var(--color-accent-rgb), 0.4);
 }
-.touch-pad:hover .hand-path {
+.touch-pad:hover .hand-part-line {
     stroke: rgba(var(--color-accent-rgb), 0.4);
 }
 .touch-pad:hover .metallic-ring {
@@ -389,10 +389,10 @@ html, body {
     opacity: 1;
 }
 
-.touch-pad.state-hold .hand-path {
+.touch-pad.state-hold .hand-part-line {
     fill: rgba(var(--color-hold-rgb), 0.15);
     stroke: var(--color-hold);
-    stroke-width: 2.8;
+    stroke-width: 3.8;
     filter: drop-shadow(0 0 8px rgba(var(--color-hold-rgb), 0.4));
 }
 
@@ -412,10 +412,10 @@ html, body {
     opacity: 1;
 }
 
-.touch-pad.state-ready .hand-path {
+.touch-pad.state-ready .hand-part-line {
     fill: rgba(var(--color-ready-rgb), 0.25);
     stroke: var(--color-ready);
-    stroke-width: 3.2;
+    stroke-width: 4.2;
     filter: drop-shadow(0 0 15px rgba(var(--color-ready-rgb), 0.7));
     animation: hand-glow-pulse 1.5s infinite alternate;
 }

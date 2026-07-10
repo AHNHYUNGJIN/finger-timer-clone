@@ -83,10 +83,21 @@
                 <div class="touch-pad" id="pad-left" role="button" aria-label="왼손 패드">
                     <div class="pad-glow"></div>
                     <div class="metallic-ring"></div>
-                    <svg class="hand-svg left-hand" viewBox="0 0 100 110" width="85%" height="85%">
-                        <!-- 엄지가 오른쪽(안쪽)을 향하도록 대칭 변환 적용 -->
-                        <g class="hand-graphic" transform="scale(-1, 1) translate(-100, 0)">
-                            <path d="M 50 105 C 42 105, 34 100, 28 92 C 21 82, 17 68, 17 60 C 17 58, 19 56, 21 56 C 23 56, 25 58, 25 61 C 25 67, 28 78, 33 85 C 34 78, 33 70, 31 63 C 29 55, 27 45, 27 40 C 27 36, 30 33, 33 33 C 36 33, 39 36, 39 42 C 39 49, 41 58, 43 65 C 43 55, 42 42, 42 33 C 42 28, 45 25, 49 25 C 53 25, 56 28, 56 34 C 56 45, 57 56, 58 64 C 59 55, 59 44, 60 36 C 60 31, 63 28, 67 28 C 71 28, 74 31, 74 38 C 74 48, 74 58, 74 67 C 75 60, 76 50, 78 44 C 79 40, 82 38, 85 39 C 88 40, 90 43, 89 48 C 87 58, 83 72, 80 83 C 76 96, 64 105, 50 105 Z" class="hand-path"/>
+                    <svg class="hand-svg left-hand" viewBox="0 0 100 100" width="80%" height="80%">
+                        <!-- 왼손: 변환 없이 배치하여 엄지가 오른쪽(안쪽)을 보게 함 -->
+                        <g class="hand-graphic" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- 손바닥 (Palm) -->
+                            <path d="M 20 62 C 20 78, 28 92, 50 92 C 72 92, 80 78, 80 62 C 80 55, 78 50, 74 48" class="hand-part-line"/>
+                            <!-- 새끼손가락 (Pinky) -->
+                            <path d="M 24 55 V 34 A 4.5 4.5 0 0 1 33 34 V 52" class="hand-part-line"/>
+                            <!-- 약지손가락 (Ring) -->
+                            <path d="M 36 50 V 20 A 4.5 4.5 0 0 1 45 20 V 48" class="hand-part-line"/>
+                            <!-- 중지손가락 (Middle) -->
+                            <path d="M 48 48 V 12 A 4.5 4.5 0 0 1 57 12 V 48" class="hand-part-line"/>
+                            <!-- 검지손가락 (Index) -->
+                            <path d="M 60 50 V 22 A 4.5 4.5 0 0 1 69 22 V 55" class="hand-part-line"/>
+                            <!-- 엄지손가락 (Thumb) - 시계방향 우측 회전형태 -->
+                            <path d="M 68 62 C 74 62, 83 58, 89 50 A 4.5 4.5 0 0 1 96 55 C 89 66, 79 72, 68 72" class="hand-part-line"/>
                         </g>
                     </svg>
                     <span class="keyboard-hint">Shift (L)</span>
@@ -99,10 +110,21 @@
                 <div class="touch-pad" id="pad-right" role="button" aria-label="오른손 패드">
                     <div class="pad-glow"></div>
                     <div class="metallic-ring"></div>
-                    <svg class="hand-svg right-hand" viewBox="0 0 100 110" width="85%" height="85%">
-                        <!-- 엄지가 왼쪽(안쪽)을 향하도록 기본 방향 유지 (변환 삭제) -->
-                        <g class="hand-graphic">
-                            <path d="M 50 105 C 42 105, 34 100, 28 92 C 21 82, 17 68, 17 60 C 17 58, 19 56, 21 56 C 23 56, 25 58, 25 61 C 25 67, 28 78, 33 85 C 34 78, 33 70, 31 63 C 29 55, 27 45, 27 40 C 27 36, 30 33, 33 33 C 36 33, 39 36, 39 42 C 39 49, 41 58, 43 65 C 43 55, 42 42, 42 33 C 42 28, 45 25, 49 25 C 53 25, 56 28, 56 34 C 56 45, 57 56, 58 64 C 59 55, 59 44, 60 36 C 60 31, 63 28, 67 28 C 71 28, 74 31, 74 38 C 74 48, 74 58, 74 67 C 75 60, 76 50, 78 44 C 79 40, 82 38, 85 39 C 88 40, 90 43, 89 48 C 87 58, 83 72, 80 83 C 76 96, 64 105, 50 105 Z" class="hand-path"/>
+                    <svg class="hand-svg right-hand" viewBox="0 0 100 100" width="80%" height="80%">
+                        <!-- 오른손: 가로 대칭 변환을 걸어 엄지가 왼쪽(안쪽)을 보게 함 -->
+                        <g class="hand-graphic" transform="scale(-1, 1) translate(-100, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- 손바닥 (Palm) -->
+                            <path d="M 20 62 C 20 78, 28 92, 50 92 C 72 92, 80 78, 80 62 C 80 55, 78 50, 74 48" class="hand-part-line"/>
+                            <!-- 새끼손가락 (Pinky) -->
+                            <path d="M 24 55 V 34 A 4.5 4.5 0 0 1 33 34 V 52" class="hand-part-line"/>
+                            <!-- 약지손가락 (Ring) -->
+                            <path d="M 36 50 V 20 A 4.5 4.5 0 0 1 45 20 V 48" class="hand-part-line"/>
+                            <!-- 중지손가락 (Middle) -->
+                            <path d="M 48 48 V 12 A 4.5 4.5 0 0 1 57 12 V 48" class="hand-part-line"/>
+                            <!-- 검지손가락 (Index) -->
+                            <path d="M 60 50 V 22 A 4.5 4.5 0 0 1 69 22 V 55" class="hand-part-line"/>
+                            <!-- 엄지손가락 (Thumb) -->
+                            <path d="M 68 62 C 74 62, 83 58, 89 50 A 4.5 4.5 0 0 1 96 55 C 89 66, 79 72, 68 72" class="hand-part-line"/>
                         </g>
                     </svg>
                     <span class="keyboard-hint">Shift (R)</span>
