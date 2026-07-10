@@ -327,14 +327,14 @@ html, body {
     pointer-events: none;
 }
 
-.right-hand {
-    transform: scaleX(-1); /* Mirror horizontally for right hand */
+.left-hand {
+    transform: scaleX(-1); /* Mirror horizontally for left hand */
 }
 
 .hand-part-line {
-    fill: rgba(255, 255, 255, 0.04);
-    stroke: var(--text-muted);
-    stroke-width: 3.5;
+    fill: rgba(255, 255, 255, 0.12); /* Semi-transparent disc plate */
+    stroke: rgba(255, 255, 255, 0.03); /* Thin outline border */
+    stroke-width: 1;
     stroke-linecap: round;
     stroke-linejoin: round;
     transition: stroke var(--transition-fast), fill var(--transition-fast), filter var(--transition-fast);
@@ -396,9 +396,9 @@ html, body {
 }
 
 .touch-pad.state-hold .hand-part-line {
-    fill: rgba(var(--color-hold-rgb), 0.15);
-    stroke: var(--color-hold);
-    stroke-width: 3.8;
+    fill: rgba(var(--color-hold-rgb), 0.25);
+    stroke: rgba(var(--color-hold-rgb), 0.1);
+    stroke-width: 1;
     filter: drop-shadow(0 0 8px rgba(var(--color-hold-rgb), 0.4));
 }
 
@@ -419,9 +419,9 @@ html, body {
 }
 
 .touch-pad.state-ready .hand-part-line {
-    fill: rgba(var(--color-ready-rgb), 0.25);
-    stroke: var(--color-ready);
-    stroke-width: 4.2;
+    fill: rgba(var(--color-ready-rgb), 0.4);
+    stroke: rgba(var(--color-ready-rgb), 0.15);
+    stroke-width: 1;
     filter: drop-shadow(0 0 15px rgba(var(--color-ready-rgb), 0.7));
     animation: hand-glow-pulse 1.5s infinite alternate;
 }
@@ -1035,7 +1035,7 @@ kbd {
         height: 65px;
     }
     
-    .right-hand {
+    .left-hand {
         transform: scaleX(-1);
     }
     
